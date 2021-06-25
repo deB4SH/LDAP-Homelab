@@ -1,0 +1,27 @@
+variables:
+  MAVEN_OPTS: -Dmaven.repo.local=${CI_PROJECT_DIR}/.m2
+
+cache:
+  key: ${CI_COMMIT_REF_SLUG}
+  paths:
+    - .m2/
+
+before_script:
+  - docker info
+  - docker login lab.0x09.de:61000 -u $CIUSER -p $CITOKEN
+
+build:
+  stage: build
+  image: oconnormi/dind-maven:latest
+  only:
+    - master
+  tags:
+    - homelab
+  services:
+    - docker:18.09.7-dind
+  variables:
+    DOCKER_DRIVER: overlay
+    DOCKER_HOST: tcp://localhost:2375/
+  script:
+    - mvn clean install
+    - mvn docker:push

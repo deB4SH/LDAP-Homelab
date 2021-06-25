@@ -1,0 +1,13 @@
+dn: cn={0}core,cn=schema,cn=config
+changetype: modify
+add: olcAttributeTypes
+olcAttributeTypes: ( 1.2.840.113556.1.4.221 NAME 'sAMAccountName' DESC 'sAMAccountName' SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 SINGLE-VALUE )
+-
+add: olcAttributeTypes
+olcAttributeTypes: ( 1.2.840.113556.1.4.302 NAME 'sAMAccountType' DESC 'sAMAccountType' SYNTAX 1.3.6.1.4.1.1466.115.121.1.27 SINGLE-VALUE )
+-
+add: olcAttributeTypes
+olcAttributeTypes: ( 1.2.840.113556.1.2.102 NAME 'memberOf' DESC 'memberOf' EQUALITY distinguishedNameMatch SYNTAX '1.3.6.1.4.1.1466.115.121.1.12' )
+-
+add: olcAttributeTypes
+olcAttributeTypes: ( 1.2.840.113556.1.4.656 NAME 'userPrincipalName' DESC 'userPrincipalName' SYNTAX  1.3.6.1.4.1.1466.115.121.1.15 SINGLE-VALUE )

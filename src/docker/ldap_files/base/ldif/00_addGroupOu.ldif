@@ -1,0 +1,5 @@
+dn: ou=groups,dc=home,dc=lab
+changetype: add
+objectClass: top
+objectClass: organizationalUnit
+ou: groups

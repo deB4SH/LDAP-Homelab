@@ -1,0 +1,7 @@
+dn: cn=unix,ou=groups,dc=home,dc=lab
+changetype: add
+gidNumber: 1002
+cn: unixusers
+description: Group for unix access
+objectClass: posixGroup
+objectClass: top

@@ -1,0 +1,14 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+# Datasource local storage ignored files
+/../../../../:\Development\docker-ldap\.idea/dataSources/
+/dataSources.local.xml
+# Editor-based HTTP Client requests
+/httpRequests/
+/.name
+/compiler.xml
+/jarRepositories.xml
+/misc.xml
+/modules.xml
+/vcs.xml

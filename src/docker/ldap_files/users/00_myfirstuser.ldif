@@ -1,0 +1,24 @@
+dn: cn=myfirstuser,ou=users,dc=home,dc=lab
+changetype: add
+objectClass: top
+objectClass: posixAccount
+objectClass: shadowAccount
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+#uids
+cn: myfirstuser
+uid: myfirstuser
+gecos: myfirstuser
+#uids numbers
+uidNumber: 2000
+gidNumber: 2000
+#personal data
+givenName: First
+sn: User
+sAMAccountName: myfirstuser
+displayName: First User
+mail: changeme@blub.tld
+homeDirectory: /home/myfirstuser
+loginshell: /bin/bash
+userPassword: YOUR_ENCRYPTED_PASSWORD
