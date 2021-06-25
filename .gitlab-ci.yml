@@ -24,4 +24,3 @@ build:
     DOCKER_HOST: tcp://localhost:2375/
   script:
     - mvn clean install
-    - mvn docker:push
