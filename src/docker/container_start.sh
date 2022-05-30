@@ -58,13 +58,13 @@ sh -c 'ldapmodify -Y EXTERNAL -H ldapi:/// -f /root/base/addAttributes.ldif'
 sh -c 'ldapmodify -Y EXTERNAL -H ldapi:/// -f /root/base/inetOrgPerson.ldif'
 
 #add all groups
-find /root/groups -name "*.ldif" -exec sh -c "ldapmodify -x -D "cn=admin,dc=home,dc=lab" -w ${LDAP_ROOT_PASSWORD} -H ldapi:/// -f {}" \;
+find /root/01_groups -name "*.ldif" -exec sh -c "ldapmodify -x -D "cn=admin,dc=home,dc=lab" -w ${LDAP_ROOT_PASSWORD} -H ldapi:/// -f {}" \;
 #add all users
-find /root/users -name "*.ldif" -exec sh -c "ldapmodify -x -D "cn=admin,dc=home,dc=lab" -w ${LDAP_ROOT_PASSWORD} -H ldapi:/// -f {}" \;
+find /root/02_users -name "*.ldif" -exec sh -c "ldapmodify -x -D "cn=admin,dc=home,dc=lab" -w ${LDAP_ROOT_PASSWORD} -H ldapi:/// -f {}" \;
 #add all users to groups
-find /root/user_groups -name "*.ldif" -exec sh -c "ldapmodify -x -D "cn=admin,dc=home,dc=lab" -w ${LDAP_ROOT_PASSWORD} -H ldapi:/// -f {}" \;
+find /root/03_user_groups -name "*.ldif" -exec sh -c "ldapmodify -x -D "cn=admin,dc=home,dc=lab" -w ${LDAP_ROOT_PASSWORD} -H ldapi:/// -f {}" \;
 #add all service-users
-find /root/serivceuser -name "*.ldif" -exec sh -c "ldapmodify -x -D "cn=admin,dc=home,dc=lab" -w ${LDAP_ROOT_PASSWORD} -H ldapi:/// -f {}" \;
+find /root/04_technical_users -name "*.ldif" -exec sh -c "ldapmodify -x -D "cn=admin,dc=home,dc=lab" -w ${LDAP_ROOT_PASSWORD} -H ldapi:/// -f {}" \;
 # log everything started
 echo "slapd started"
 tail -f /dev/null

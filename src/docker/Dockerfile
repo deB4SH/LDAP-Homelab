@@ -1,4 +1,4 @@
-FROM lab.0x09.de:61000/homelab/base:latest
+FROM debian:stretch-20220527-slim
 MAINTAINER deB4SH <hello@b4sh.de>
 #=========================
 # This container provides a basic debian installation plus a ldap service.
@@ -46,18 +46,18 @@ EXPOSE 636
 # Add users ou to tree
 # - copy the schema files to container
 #=========================
-COPY ldap_files/base/ldif/00_addAttributes.ldif /root/base/addAttributes.ldif
-COPY ldap_files/base/ldif/00_inetOrgPerson.ldif /root/base/inetOrgPerson.ldif
-COPY ldap_files/base/ldif/00_addUsersOu.ldif /root/base/addUsersOu.ldif
-COPY ldap_files/base/ldif/00_addGroupOu.ldif /root/base/addGroupOu.ldif
+COPY ldap_files/00_base/ldif/00_addAttributes.ldif /root/base/addAttributes.ldif
+COPY ldap_files/00_base/ldif/00_inetOrgPerson.ldif /root/base/inetOrgPerson.ldif
+COPY ldap_files/00_base/ldif/00_addUsersOu.ldif /root/base/addUsersOu.ldif
+COPY ldap_files/00_base/ldif/00_addGroupOu.ldif /root/base/addGroupOu.ldif
 
 #=========================
 # Copy User and Group ldif files
 #=========================
-COPY ldap_files/groups /root/groups
-COPY ldap_files/users /root/users
-COPY ldap_files/user_groups /root/user_groups
-COPY ldap_files/serviceuser /root/serivceuser
+COPY ldap_files/01_groups /root/01_groups
+COPY ldap_files/02_users /root/02_users
+COPY ldap_files/03_user_groups /root/03_user_groups
+COPY ldap_files/04_technical_users /root/04_technical_users
 
 #=========================
 # Creating basic directories for later usage
