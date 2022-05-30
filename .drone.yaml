@@ -30,7 +30,7 @@ steps:
       - name: dockersock
         path: /var/run
     commands:
-      - export BRANCHVERSION=$(echo $DRONE_REFSPEC | sed -E 's/release\\/([0-9a-zA-Z.\\-]+)/\\1/'")
+      - export BRANCHVERSION=$(echo $DRONE_REFSPEC | sed -E 's/release\\/([0-9a-zA-Z.\\-]+)/\\1/')
       - mvn versions:set -DnewVersion=${BRANCHVERSION} -f ./pom.xml
   - name: build
     image: ghcr.io/deb4sh/docker-maven-dind:3.8.2-adoptopenjdk-16-20.10.8
