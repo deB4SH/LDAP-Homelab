@@ -17,6 +17,9 @@ volumes:
 - name: dockersock
   temp: {}
 
+node_selector:
+  kubernetes.io/arch: amd64
+
 steps:
   - name: build
     image: ghcr.io/deb4sh/docker-maven-dind:3.8.2-adoptopenjdk-16-20.10.8
