@@ -21,6 +21,17 @@ node_selector:
   kubernetes.io/arch: amd64
 
 steps:
+  - name: tag-version
+    image: ghcr.io/deb4sh/docker-maven-dind:3.8.2-adoptopenjdk-16-20.10.8
+    when:
+      branch:
+        - release/*
+    volumes:
+      - name: dockersock
+        path: /var/run
+    commands:
+      - export BRANCHVERSION=$(echo $DRONE_REFSPEC | sed -E 's/release\\/([0-9a-zA-Z.\\-]+)/\\1/'")
+      - mvn versions:set -DnewVersion=${BRANCHVERSION} -f ./pom.xml
   - name: build
     image: ghcr.io/deb4sh/docker-maven-dind:3.8.2-adoptopenjdk-16-20.10.8
     volumes:
@@ -28,4 +39,4 @@ steps:
         path: /var/run
     commands:
       - sleep 5 # give docker enough time to start
-      - mvn clean install
+      - mvn clean install -f ./pom.xml
