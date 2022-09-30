@@ -1,4 +1,4 @@
-FROM debian:stretch-20220527-slim
+FROM debian:stretch-20220622-slim
 MAINTAINER deB4SH <https://github.com/deB4SH>
 #=========================
 # This container provides a basic debian installation plus a ldap service.
