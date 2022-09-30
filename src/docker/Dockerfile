@@ -1,5 +1,5 @@
 FROM debian:stretch-20220527-slim
-MAINTAINER deB4SH <hello@b4sh.de>
+MAINTAINER deB4SH <https://github.com/deB4SH>
 #=========================
 # This container provides a basic debian installation plus a ldap service.
 # It auto exposes the ldap and ldaps ports.
