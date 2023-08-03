@@ -49,6 +49,7 @@ EXPOSE 636
 COPY ldap_files/00_base/ldif/00_addAttributes.ldif /root/base/addAttributes.ldif
 COPY ldap_files/00_base/ldif/00_inetOrgPerson.ldif /root/base/inetOrgPerson.ldif
 COPY ldap_files/00_base/ldif/00_addUsersOu.ldif /root/base/addUsersOu.ldif
+COPY ldap_files/00_base/ldif/00_addSvcUsersOu.ldif /root/base/addSvcUsersOu.ldif
 COPY ldap_files/00_base/ldif/00_addGroupOu.ldif /root/base/addGroupOu.ldif
 
 #=========================

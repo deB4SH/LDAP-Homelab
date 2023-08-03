@@ -52,6 +52,7 @@ sleep 10
 
 set -x
 sh -c 'ldapadd -x -D "cn=admin,dc=home,dc=lab" -w ${LDAP_ROOT_PASSWORD} -H ldapi:/// -f /root/base/addUsersOu.ldif'
+sh -c 'ldapadd -x -D "cn=admin,dc=home,dc=lab" -w ${LDAP_ROOT_PASSWORD} -H ldapi:/// -f /root/base/addSvcUsersOu.ldif'
 sh -c 'ldapadd -x -D "cn=admin,dc=home,dc=lab" -w ${LDAP_ROOT_PASSWORD} -H ldapi:/// -f /root/base/addGroupOu.ldif'
 
 sh -c 'ldapmodify -Y EXTERNAL -H ldapi:/// -f /root/base/addAttributes.ldif'
