@@ -57,6 +57,7 @@ sh -c 'ldapadd -x -D "cn=admin,dc=home,dc=lab" -w ${LDAP_ROOT_PASSWORD} -H ldapi
 
 sh -c 'ldapmodify -Y EXTERNAL -H ldapi:/// -f /root/base/addAttributes.ldif'
 sh -c 'ldapmodify -Y EXTERNAL -H ldapi:/// -f /root/base/inetOrgPerson.ldif'
+sh -c 'ldapadd -x -D "cn=admin,dc=home,dc=lab" -w ${LDAP_ROOT_PASSWORD} -H ldapi:/// -f /root/base/addSambaSchema.ldif'
 
 #add all groups
 find /root/01_groups -name "*.ldif" -exec sh -c "ldapmodify -x -D "cn=admin,dc=home,dc=lab" -w ${LDAP_ROOT_PASSWORD} -H ldapi:/// -f {}" \;

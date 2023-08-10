@@ -1,0 +1,1 @@
+Source: https://github.com/zentyal/samba/blob/master/examples/LDAP/samba.ldif

@@ -23,6 +23,6 @@ fi
 echo "Building image with tag $TAG"
 
 docker \
-    build . \
-    -f ../src/docker/Dockerfile \
+    build ./src/docker\
+    -f src/docker/Dockerfile \
     -t $(echo "$REGISTRY/ldap-homelab:$TAG")
