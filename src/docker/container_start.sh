@@ -67,6 +67,8 @@ find /root/02_users -name "*.ldif" -exec sh -c "ldapmodify -x -D "cn=admin,dc=ho
 find /root/03_user_groups -name "*.ldif" -exec sh -c "ldapmodify -x -D "cn=admin,dc=home,dc=lab" -w ${LDAP_ROOT_PASSWORD} -H ldapi:/// -f {}" \;
 #add all service-users
 find /root/04_technical_users -name "*.ldif" -exec sh -c "ldapmodify -x -D "cn=admin,dc=home,dc=lab" -w ${LDAP_ROOT_PASSWORD} -H ldapi:/// -f {}" \;
+#add all technical users to groups
+find /root/05_technical_user_groups -name "*.ldif" -exec sh -c "ldapmodify -x -D "cn=admin,dc=home,dc=lab" -w ${LDAP_ROOT_PASSWORD} -H ldapi:/// -f {}" \;
 # log everything started
 echo "slapd started"
 tail -f /dev/null

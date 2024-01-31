@@ -60,6 +60,7 @@ COPY ldap_files/01_groups /root/01_groups
 COPY ldap_files/02_users /root/02_users
 COPY ldap_files/03_user_groups /root/03_user_groups
 COPY ldap_files/04_technical_users /root/04_technical_users
+COPY ldap_files/05_technical_user_groups /root/05_technical_user_groups
 
 #=========================
 # Creating basic directories for later usage
