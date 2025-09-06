@@ -69,6 +69,16 @@ COPY ldap_files/05_technical_user_groups /root/05_technical_user_groups
 #=========================
 RUN mkdir -p /etc/service/slapd
 COPY container_start.sh /etc/service/slapd/run
-RUN dos2unix /etc/service/slapd/run
+RUN dos2unix /etc/service/slapd/run \
+    && chmod +x /etc/service/slapd/run 
+
+#=========================
+# Disable policy-rc.d 
+# - blocks restart and reconfigure of slapd while container is running
+# - this is usually not the best idea to set the exit code to 0 
+# - due to the fact that this is an debug/homelab container for testing with ldap it is fine
+# - please consult policy-rc.d documentation for questions: https://people.debian.org/~hmh/invokerc.d-policyrc.d-specification.txt
+#=========================
+RUN echo exit 0 > /usr/sbin/policy-rc.d
 
 ENTRYPOINT ["/bin/bash","/etc/service/slapd/run"]
