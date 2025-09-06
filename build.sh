@@ -22,7 +22,17 @@ fi
 
 echo "Building image with tag $TAG"
 
-docker \
+
+if [ -x "$(command -v podman)" ]; then
+    cli_cmd="podman"
+elif [ -x "$(command -v docker)" ]; then
+    cli_cmd="docker"
+else
+    echo "No container cli tool found! Aborting."
+    exit -1
+fi
+
+${cli_cmd} \
     build ./src/docker\
     -f src/docker/Dockerfile \
     -t $(echo "$REGISTRY/ldap-homelab:$TAG")
