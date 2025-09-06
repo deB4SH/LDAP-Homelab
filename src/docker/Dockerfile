@@ -1,4 +1,5 @@
-FROM debian:bookworm-20230703-slim
+ARG REPOSITORY="docker.io"
+FROM ${REPOSITORY}/library/debian:trixie-20250721-slim
 MAINTAINER deB4SH <https://github.com/deB4SH>
 #=========================
 # This container provides a basic debian installation plus a ldap service.
